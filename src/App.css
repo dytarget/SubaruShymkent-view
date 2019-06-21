@@ -1,0 +1,68 @@
+.App{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.dr-men{
+  display: block;
+}
+
+.dr-item{
+  width: 200px;
+  text-align: center;
+  color: #1e317a;
+  padding: 15px 0;
+  display: block;
+  border-bottom: 1px solid #e8e8e8;
+}
+.link-dp{
+  color:#00205b;
+}
+.dr-item:hover{
+  background: #00a0dc;
+}
+.dr-item:hover .link-dp{
+  color: white;
+  outline: none;
+  text-decoration: none;
+}
+
+
+.navb{
+  background-color: #00a0dc;
+  color: white;
+  height: 70px;
+}
+
+.nav2{
+  height:100px;
+}
+
+.napisatNam{
+  color: #fff;
+  border: 1px solid #fff;
+  background: transparent;
+  font-size: 18px;
+  width: 150px;  
+}
+
+.link{
+  color: white;
+  text-decoration: none;
+  outline: none;
+  margin-top:10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.link:hover{
+  background: white;
+  color:#00205b;
+  outline: none;
+  text-decoration: none;
+}
+.im{
+  transform:scale(1.4);
+}
+.search{
+
+}

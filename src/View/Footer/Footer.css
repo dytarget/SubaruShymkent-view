@@ -1,0 +1,29 @@
+footer{
+    background-color: #232323;
+    padding-left: 90px;
+}
+footer ul{
+    font-size: 1.0rem;
+}
+
+footer a{
+    font-weight: 400;
+}
+
+footer li:hover{
+ 
+    color: #00a0dc;
+}
+
+footer a:focus{
+    outline: none;
+}
+
+.info{
+    text-align: left;
+    margin-left: 15px;
+    padding-right: 90px;
+}
+.bottom{
+    margin-left: -90px;
+}

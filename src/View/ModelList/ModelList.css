@@ -1,0 +1,38 @@
+.model-list{
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.model{
+    margin-left: 30px;
+    padding: 5px;
+    width: 170px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+}
+.model:hover{
+    border-color: #e7285e;
+    box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.47);
+    background: #fff;
+}
+
+.model:focus{
+    outline: none;
+}
+
+.model span{
+    margin-top: 7px;
+}
+
+#name{
+    color:#2c317a;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+#price{
+    color: black;
+    font-size: 0.9em;
+}
