@@ -3,13 +3,23 @@ import {MDBDropdown,MDBDropdownItem,MDBDropdownMenu,MDBDropdownToggle,MDBInput} 
 import {Modal,Button} from 'react-bootstrap';
 import {Nav,Navbar,NavDropdown,Form} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import { MDBContainer, MDBRow, MDBCol, MDBModal,MDBModalHeader,MDBModalBody,MDBModalFooter, MDBIcon,MDBBtn } from
+import { MDBContainer,MDBAlert, MDBRow, MDBCol, MDBModal,MDBModalHeader,MDBModalBody,MDBModalFooter, MDBIcon,MDBBtn } from
 "mdbreact";
+import ModelList from '../ModelList/ModelList';
+import axios from 'axios';
 
+const url="http://localhost:5000/";
 export class NavbarContainer extends Component {
     state={
         showNapisat:false,
-        phone:"87774136970",
+        name_napisat:"",
+        phone_napisat:"",
+        email_napistal:"",
+        message_napisat:"",
+        name_testdrive:"",
+        phone_testdrive:"",
+        email_testdrive:"",
+        model_testdrive:"",
         show:false,
         showConditions:false
     }
@@ -35,8 +45,52 @@ export class NavbarContainer extends Component {
                     
                     <Navbar.Collapse className="justify-content-end">
                         <Nav>
-                        <button onClick={this.handleOpen} className="napisatNam mr-sm-2">Написать нам</button>
-                        <NavDropdown id="drdown mr-sm-4" title={<span style={{color:'white'}}>О компании</span>}>
+                        <Link onClick={this.handleOpen} className="link ">Написать нам</Link>
+                        <Link to="/offers_list" className="link ">Специальные предложения </Link>
+                        <Link className="link " to="/service_company" style={{marginRight:"20px"}}>Сервисные кампании </Link>
+                        </Nav>
+                        <Navbar.Brand>
+                        <img style={{cursor:"pointer"}} onClick={()=>{window.open("http://www.astana-motors.kz/")}}  src={require('../../img/amlogo.png')} alt="Astana Motors"/>
+                        </Navbar.Brand>
+                        
+                    </Navbar.Collapse>
+                    </Navbar>
+                    <Navbar className="nav2">
+                    <Navbar.Brand className="subarubrand" style={{marginLeft:"18px"}}>
+                        <Link exact to="/">
+                        <img src={require('../../img/subaru-logo.png')}  alt="Subaru"/>
+                        </Link>
+                    </Navbar.Brand>
+                    <Navbar.Collapse className="justify-content-end">
+                        <Nav className="justify-content-end">
+                        <MDBDropdown color="info-color">
+                            <MDBDropdownToggle className="navlinks" nav caret>
+                                <div className="d-none d-md-inline"><strong color="black">Модельный ряд</strong></div>
+                            </MDBDropdownToggle>
+                            <MDBDropdownMenu className="menu" center>
+                                <ModelList/>
+                            </MDBDropdownMenu>
+                            </MDBDropdown>
+                            <MDBDropdown color="info-color">
+                            <MDBDropdownToggle className="navlinks" nav caret>
+                                <div className="d-none d-md-inline">Владельцам</div>
+                            </MDBDropdownToggle>
+                            <MDBDropdownMenu className="menu" center>
+                                <div className="dr-men">
+                                <div className="dr-item"><Link to="/parts" className="link-dp">Запчасти</Link></div>
+                                <div className="dr-item"><Link to="/guarantee" className="link-dp">Гарантийное обслуживание</Link></div> 
+                                <div className="dr-item"><Link className="link-dp">Техническое обслуживание</Link></div>
+                                <div className="dr-item"><Link className="link-dp">Полезная информация</Link></div>
+                                <div className="dr-item"><Link to="/manual" className="link-dp">Руководства</Link></div>
+                                <div className="dr-item"><Link className="link-dp">Информация для посетителей салонов</Link></div>
+                            </div>
+                            </MDBDropdownMenu>
+                            </MDBDropdown>
+                            <MDBDropdown color="info-color">
+                            <MDBDropdownToggle className="navlinks" nav caret>
+                                <div className="d-none d-md-inline">О нашей компании</div>
+                            </MDBDropdownToggle>
+                            <MDBDropdownMenu className="menu" center>
                             <div className="dr-men">
                             <div className="dr-item"><Link className="link-dp">Почему Subaru?</Link></div>
                             <div className="dr-item"><Link className="link-dp">Новости</Link></div>
@@ -44,88 +98,47 @@ export class NavbarContainer extends Component {
                             <div className="dr-item"><Link className="link-dp">Дилеры</Link></div>
                             <div className="dr-item"><Link className="link-dp">Как стать дилером Subaru</Link></div>
                             </div>
-                        </NavDropdown>
-                        <Link className="link mr-sm-4">Специальные предложения </Link>
-                        <Link className="link mr-sm-4">Сервисные кампании </Link>
-                        </Nav>
-                        <MDBInput label={<p style={{color:"white"}}> Поиск</p>} className="col-xs-6 mr-sm-4" style={{width:"100px",color:"white"}} />
-                        <Navbar.Brand>
-                        <img style={{cursor:"pointer"}} onClick={()=>{window.open("http://www.astana-motors.kz/")}} height="30px" src={require('../../img/amlogo.png')} alt="Astana Motors"/>
-                        </Navbar.Brand>
-                        
-                    </Navbar.Collapse>
-                    </Navbar>
-                    <Navbar className="nav2">
-                    <Navbar.Brand style={{marginLeft:"18px"}}>
-                        <Link to="/">
-                        <img src={require('../../img/subaru-logo.png')} alt="Subaru"/>
-                        </Link>
-                    </Navbar.Brand>
-                    <Navbar.Collapse className="justify-content-end">
-                        <Nav className="justify-content-end">
-                        <MDBDropdown color="info-color">
-                            <MDBDropdownToggle nav caret>
-                                <div className="d-none d-md-inline"><strong color="black">Модельный ряд</strong></div>
-                            </MDBDropdownToggle>
-                            <MDBDropdownMenu right>
-                                <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
                             </MDBDropdownMenu>
                             </MDBDropdown>
-                            <MDBDropdown color="info-color">
-                            <MDBDropdownToggle nav caret>
-                                <div className="d-none d-md-inline">Владельцам</div>
-                            </MDBDropdownToggle>
-                            <MDBDropdownMenu right>
-                                <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                            </MDBDropdownMenu>
-                            </MDBDropdown>
-                            <MDBDropdown color="info-color">
-                            <MDBDropdownToggle nav caret>
-                                <div className="d-none d-md-inline">Финансовые продукты</div>
-                            </MDBDropdownToggle>
-                            <MDBDropdownMenu right>
-                                <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                            </MDBDropdownMenu>
-                            </MDBDropdown>
-                        <Nav.Link onClick={()=>{window.open("http://subarutrade-in.kz/")}} className="mr-sm-2">
-                            Автомобили с пробегом
-                            </Nav.Link>
-                            <Nav.Link onClick={()=>{this.setState({show:true})}} className="mr-sm-2">
-                            Тест-Драйв
-                            </Nav.Link>
-                            <Nav.Link className="mr-sm-2">
-                            Дилеры
-                            </Nav.Link>
+                        <Nav.Link onClick={()=>{window.open("http://subarutrade-in.kz/")}} className="navlinks">Автомобили с пробегом</Nav.Link>
+                            <Nav.Link className="navlinks" onClick={()=>{this.setState({show:true})}} >Тест-Драйв</Nav.Link>
+                            <Nav.Link  className="navlinks mr-sm-4"><Link to="/dealers" style={{color:"inherit"}}>Дилеры</Link></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>  
                 </Navbar>
 
                 <Modal show={this.state.showNapisat} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
-                    <Modal.Title>Написать нам</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                    <MDBInput label="ФИО"/>
-                    <MDBInput hint="+7(_ _ _)-_ _ _-_ _-_ _"/>
-                    <MDBInput label="Ваше сообщение" type="textarea" outline/>
-                    </Modal.Body>
-                    <Modal.Footer>
-                    <Button variant="secondary" onClick={this.handleClose}>
-                        Закрыть
-                    </Button>
-                    <Button variant="primary" onClick={this.handleClose}>
-                        Отправить
-                    </Button>
-                    </Modal.Footer>
+                <Modal.Header closeButton>
+                <Modal.Title>Написать нам</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                <MDBInput onChange={(e)=>{this.setState({name_napisat:e.target.value})}} icon="user" label="ФИО"/>
+                <MDBInput onChange={(e)=>{this.setState({phone_napisat:e.target.value})}} icon="phone" hint="+7(_ _ _)-_ _ _-_ _-_ _"/>
+                <MDBInput onChange={(e)=>{this.setState({email_napistal:e.target.value})}}
+                            label="E-mail адрес"
+                            icon="envelope"
+                            group
+                            type="email"
+                            validate
+                            error="wrong"
+                            success="right"
+                        />
+                <MDBInput onChange={(e)=>{this.setState({message_napisat:e.target.value})}} icon="comment" label="Ваше сообщение" type="textarea" outline/>
+
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="white" onClick={this.handleClose}>
+                    Закрыть
+                </Button>
+                <Button variant="elegant" onClick={()=>{
+                    axios.post(url+"voprsy",{name:this.state.name_napisat,phone_number:this.state.phone_napisat,
+                    email:this.state.email_napistal,message:this.state.message_napisat}).then(res=>{
+                        this.handleClose();
+                    })
+                }}>
+                    Отправить
+                </Button>
+                </Modal.Footer>
                 </Modal>
 
                 <Modal   show={this.state.show} onHide={this.handleCloseTest}>
@@ -140,6 +153,7 @@ export class NavbarContainer extends Component {
                             <p className="h5 mb-4">Записаться на тест драйв в городе Шымкент</p>
                             <div className="grey-text">
                             <MDBInput
+                            onChange={(e)=>{this.setState({name_testdrive:e.target.value})}}
                                 label="ФИО"
                                 icon="user"
                                 group
@@ -149,6 +163,7 @@ export class NavbarContainer extends Component {
                                 success="right"
                             />
                             <MDBInput
+                            onChange={(e)=>{this.setState({email_testdrive:e.target.value})}}
                                 label="E-mail адрес"
                                 icon="envelope"
                                 group
@@ -159,6 +174,7 @@ export class NavbarContainer extends Component {
                             />
                                
                              <MDBInput
+                             onChange={(e)=>{this.setState({phone_testdrive:e.target.value})}}
                                 label="Номер телефона"
                                 icon="phone"
                                 group
@@ -168,12 +184,13 @@ export class NavbarContainer extends Component {
                                 success="right"
                             />
 
-                            <select className="browser-default custom-select">
+                            <select className="browser-default custom-select" onChange={(e)=>{console.log(e.target);
+                             this.setState({model_testdrive:e.target.value})}}>
                                 <option>Выберите модель</option>
-                                <option value="1">Subaru XV</option>
-                                <option value="2">Forester</option>
-                                <option value="3">Legacy</option>
-                                <option value="3">Outback</option>
+                                <option value="Subaru XV">Subaru XV</option>
+                                <option value="Forester">Forester</option>
+                                <option value="Legacy">Legacy</option>
+                                <option value="Outback">Outback</option>
                             </select>
                          
                              
@@ -183,9 +200,13 @@ export class NavbarContainer extends Component {
                                 <Form.Check type="checkbox" label="У меня есть водительские права" />
                                 <Form.Check type="checkbox" label='Я прочитал и согласен с условиями заявки на тест-драйв' />
                             </Form.Group>
-                            <p onClick={()=>{this.setState({showConditions:true})}}><u>Условия заявки на тест драйв</u></p>
+                            <p onClick={()=>{this.setState({showConditions:true})}}><u style={{cursor:"pointer"}}>Условия заявки на тест драйв</u></p>
                             <div className="text-center">
-                            <MDBBtn outline color="info">
+                            <MDBBtn onClick={()=>{
+                                let {name_testdrive,email_testdrive,phone_testdrive,model_testdrive}=this.state;
+                                axios.post(url+'test_drive',{name:name_testdrive,email:email_testdrive,phone_number:phone_testdrive,car_model:model_testdrive})
+                                .then(res=>{this.handleCloseTest()})
+                            }} outline color="elegant">
                                 Отправить <MDBIcon far icon="paper-plane" className="ml-1" />
                             </MDBBtn>
                             </div>
@@ -205,7 +226,7 @@ export class NavbarContainer extends Component {
 
                   </MDBModalBody>
                   <MDBModalFooter>
-                    <MDBBtn color="secondary" onClick={()=>{this.setState({showConditions:false})}}>Закрыть</MDBBtn>
+                    <MDBBtn color="elegant" onClick={()=>{this.setState({showConditions:false})}}>Закрыть</MDBBtn>
                   </MDBModalFooter>
                 </MDBModal>             
                 </Modal>

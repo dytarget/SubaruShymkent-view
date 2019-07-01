@@ -3,10 +3,16 @@ import './Cards.css';
 import {MDBBtn,MDBInput,MDBRow,MDBCol,MDBIcon,MDBContainer,MDBModalBody,MDBModal,MDBModalFooter,MDBModalHeader} from 'mdbreact';
 import {Modal,Button} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
+import axios from 'axios';
 
+const url="http://localhost:5000/";
 
 export class Cards extends Component {
     state={
+        name_testdrive:"",
+        phone_testdrive:"",
+        email_testdrive:"",
+        model_testdrive:"",
         show:false,
         showConditions:false
     }
@@ -45,6 +51,7 @@ export class Cards extends Component {
                     <MDBBtn onClick={()=>{window.open("https://subarufinance.kz/")}} gradient="aqua">www.subarufinance.kz</MDBBtn>
                 </div>
             </div>
+       
             <Modal   show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
                     <Modal.Title>Записаться на тест драйв </Modal.Title>
@@ -57,6 +64,7 @@ export class Cards extends Component {
                             <p className="h5 mb-4">Записаться на тест драйв в городе Шымкент</p>
                             <div className="grey-text">
                             <MDBInput
+                            onChange={(e)=>{this.setState({name_testdrive:e.target.value})}}
                                 label="ФИО"
                                 icon="user"
                                 group
@@ -66,6 +74,7 @@ export class Cards extends Component {
                                 success="right"
                             />
                             <MDBInput
+                            onChange={(e)=>{this.setState({email_testdrive:e.target.value})}}
                                 label="E-mail адрес"
                                 icon="envelope"
                                 group
@@ -76,6 +85,7 @@ export class Cards extends Component {
                             />
                                
                              <MDBInput
+                             onChange={(e)=>{this.setState({phone_testdrive:e.target.value})}}
                                 label="Номер телефона"
                                 icon="phone"
                                 group
@@ -85,12 +95,12 @@ export class Cards extends Component {
                                 success="right"
                             />
 
-                            <select className="browser-default custom-select">
+                            <select className="browser-default custom-select" onChange={(e)=>{this.setState({model_testdrive:e.target.value})}}>
                                 <option>Выберите модель</option>
-                                <option value="1">Subaru XV</option>
-                                <option value="2">Forester</option>
-                                <option value="3">Legacy</option>
-                                <option value="3">Outback</option>
+                                <option value="Subaru XV">Subaru XV</option>
+                                <option value="Forester">Forester</option>
+                                <option value="Legacy">Legacy</option>
+                                <option value="Outback">Outback</option>
                             </select>
                          
                              
@@ -100,9 +110,13 @@ export class Cards extends Component {
                                 <Form.Check type="checkbox" label="У меня есть водительские права" />
                                 <Form.Check type="checkbox" label='Я прочитал и согласен с условиями заявки на тест-драйв' />
                             </Form.Group>
-                            <p onClick={()=>{this.setState({showConditions:true})}}><u>Условия заявки на тест драйв</u></p>
+                            <p onClick={()=>{this.setState({showConditions:true})}}><u style={{cursor:"pointer"}}>Условия заявки на тест драйв</u></p>
                             <div className="text-center">
-                            <MDBBtn outline color="info">
+                            <MDBBtn onClick={()=>{
+                                let {name_testdrive,email_testdrive,phone_testdrive,model_testdrive}=this.state;
+                                axios.post(url+'test_drive',{name:name_testdrive,email:email_testdrive,phone_number:phone_testdrive,car_model:model_testdrive})
+                                .then(res=>{this.handleClose()})
+                            }} outline color="elegant">
                                 Отправить <MDBIcon far icon="paper-plane" className="ml-1" />
                             </MDBBtn>
                             </div>
@@ -122,7 +136,7 @@ export class Cards extends Component {
 
                   </MDBModalBody>
                   <MDBModalFooter>
-                    <MDBBtn color="secondary" onClick={()=>{this.setState({showConditions:false})}}>Закрыть</MDBBtn>
+                    <MDBBtn color="elegant" onClick={()=>{this.setState({showConditions:false})}}>Закрыть</MDBBtn>
                   </MDBModalFooter>
                 </MDBModal>             
                 </Modal>

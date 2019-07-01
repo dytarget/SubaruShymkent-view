@@ -39,7 +39,7 @@ export class TablePersonality extends Component {
                         <td>12790000 тг</td>
                         <td>14290000 тг</td>
                         </tr>
-                        <tr  style={{cursor:"pointer",backgroundColor:'#d8d8d8'}}><td onClick={()=>{this.setState(old=>{return{engine:!old.engine}})}} style={{fontSize:"1.5em"}} colSpan="3"><span style={{float:"left"}}>Двигатель</span>  <span style={{float:"right"}} >{this.state.engine ? ('‾'):('+')}</span></td></tr>
+                        <tr  style={{cursor:"pointer"}}><td onClick={()=>{this.setState(old=>{return{engine:!old.engine}})}} style={{fontSize:"1.5em"}} colSpan="3"><span style={{float:"left"}}>Двигатель</span>  <span style={{float:"right"}} >{this.state.engine ? ('‾'):('+')}</span></td></tr>
                         {this.state.engine && <>
                         <tr>
                         <td  className="components">ТИП ДВИГАТЕЛЯ</td>
@@ -48,7 +48,7 @@ export class TablePersonality extends Component {
                         </tr>
                       
                         </>}
-                        <tr  style={{cursor:"pointer",backgroundColor:'#d8d8d8'}}><td onClick={()=>{this.setState(old=>{return{weight:!old.weight}})}} style={{fontSize:"1.5em"}} colSpan="3"><span style={{float:"left"}}>Размер и вес</span>  <span style={{float:"right"}} >{this.state.weight ? ('‾'):('+')}</span></td></tr>
+                        <tr  style={{cursor:"pointer"}}><td onClick={()=>{this.setState(old=>{return{weight:!old.weight}})}} style={{fontSize:"1.5em"}} colSpan="3"><span style={{float:"left"}}>Размер и вес</span>  <span style={{float:"right"}} >{this.state.weight ? ('‾'):('+')}</span></td></tr>
                         {this.state.weight && <>
                         <tr>
                         <td  className="components">Длина, мм</td>
@@ -77,7 +77,7 @@ export class TablePersonality extends Component {
                         </tr>
                       
                         </>}
-                        <tr  style={{cursor:"pointer",backgroundColor:'#d8d8d8'}}><td onClick={()=>{this.setState(old=>{return{wheeldrive:!old.wheeldrive}})}} style={{fontSize:"1.5em"}} colSpan="3"><span style={{float:"left"}}>Система привода</span>  <span style={{float:"right"}} >{this.state.wheeldrive ? ('‾'):('+')}</span></td></tr>
+                        <tr  style={{cursor:"pointer"}}><td onClick={()=>{this.setState(old=>{return{wheeldrive:!old.wheeldrive}})}} style={{fontSize:"1.5em"}} colSpan="3"><span style={{float:"left"}}>Система привода</span>  <span style={{float:"right"}} >{this.state.wheeldrive ? ('‾'):('+')}</span></td></tr>
                         {this.state.wheeldrive && <>
                         <tr>
                         <td  className="components">Тип полного привода</td>
@@ -86,7 +86,7 @@ export class TablePersonality extends Component {
                         </tr>
                     
                         </>}
-                        <tr  style={{cursor:"pointer",backgroundColor:'#d8d8d8'}}><td onClick={()=>{this.setState(old=>{return{personality:!old.personality}})}} style={{fontSize:"1.5em"}} colSpan="3"><span style={{float:"left"}}>Характеристики</span>  <span style={{float:"right"}} >{this.state.personality ? ('‾'):('+')}</span></td></tr>
+                        <tr  style={{cursor:"pointer"}}><td onClick={()=>{this.setState(old=>{return{personality:!old.personality}})}} style={{fontSize:"1.5em"}} colSpan="3"><span style={{float:"left"}}>Характеристики</span>  <span style={{float:"right"}} >{this.state.personality ? ('‾'):('+')}</span></td></tr>
                         {this.state.personality && <>
                         <tr>
                         <td  className="components">МАКСИМАЛЬНАЯ МОЩНОСТЬ (лс/об/мин)</td>
@@ -131,6 +131,11 @@ export class TablePersonality extends Component {
 
                     
                         </>}
+                        <tr style={{visibility:"hidden"}}>
+                        <td style={{visibility:"hidden"}} className="components"></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
                     </tbody>
                 </Table>
             </div>

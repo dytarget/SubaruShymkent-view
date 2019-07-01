@@ -41,7 +41,7 @@ export class TablePrice extends Component {
                         <td>14290000 тг</td>
                         </tr>
                         
-                        <tr  style={{cursor:"pointer",backgroundColor:'#d8d8d8'}}><td onClick={()=>{this.setState(old=>{return{exterier:!old.exterier}})}} style={{fontSize:"1.5em"}} colSpan="3"><span style={{float:"left"}}>Экстерьер</span>  <span style={{float:"right"}} >{this.state.exterier ? ('‾'):('+')}</span></td></tr>
+                        <tr  style={{cursor:"pointer"}}><td onClick={()=>{this.setState(old=>{return{exterier:!old.exterier}})}} style={{fontSize:"1.5em"}} colSpan="3"><span style={{float:"left"}}>Экстерьер</span>  <span style={{float:"right"}} >{this.state.exterier ? ('‾'):('+')}</span></td></tr>
                         
                         {this.state.exterier && 
                         <>
@@ -107,7 +107,7 @@ export class TablePrice extends Component {
                         </tr>
                         </>
                     }
-                        <tr><td onClick={()=>{this.setState(old=>{return{interier:!old.interier}})}} colSpan="3" style={{cursor:"pointer",backgroundColor:"#d8d8d8",fontSize:"1.5rem"}}><span style={{float:"left"}}>Интерьер</span>  <span style={{float:"right"}} >{this.state.interier ? ('‾'):('+')}</span></td></tr>
+                        <tr><td onClick={()=>{this.setState(old=>{return{interier:!old.interier}})}} colSpan="3" style={{cursor:"pointer",fontSize:"1.5rem"}}><span style={{float:"left"}}>Интерьер</span>  <span style={{float:"right"}} >{this.state.interier ? ('‾'):('+')}</span></td></tr>
                         {this.state.interier && 
                         <>
                         <tr>
@@ -283,7 +283,7 @@ export class TablePrice extends Component {
                         }
                         <tr><td onClick={
                             ()=>{this.setState(old=>{return{control:!old.control}})}
-                        } colSpan="3" style={{cursor:"pointer",backgroundColor:"#d8d8d8",fontSize:"1.5rem"}}><span style={{float:"left"}}>Управляемость и системы активной безопасности</span>  <span style={{float:"right"}} >{this.state.control ? ('‾'):('+')}</span></td></tr>
+                        } colSpan="3" style={{cursor:"pointer",fontSize:"1.5rem"}}><span style={{float:"left"}}>Управляемость и системы активной безопасности</span>  <span style={{float:"right"}} >{this.state.control ? ('‾'):('+')}</span></td></tr>
 
                        {this.state.control && <> <tr>
                         <td  className="components">Система SI Drive с управлением на рулевом колесе (2 режима)</td>
@@ -377,7 +377,7 @@ export class TablePrice extends Component {
                         <tr><td colSpan="3"
                         onClick={
                             ()=>{this.setState(old=>{return{detection:!old.detection}})}
-                        } style={{cursor:"pointer",backgroundColor:"#d8d8d8",fontSize:"1.30rem"}}><span style={{float:"left"}}>Subaru Rear Vehicle Detection-комплекс систем обнаружения автомобиля,движущегося сзади</span>  <span style={{float:"right"}} >{this.state.detection ? ('‾'):('+')}</span></td></tr>
+                        } style={{cursor:"pointer",fontSize:"1.30rem"}}><span style={{float:"left"}}>Subaru Rear Vehicle Detection-комплекс систем обнаружения автомобиля,движущегося сзади</span>  <span style={{float:"right"}} >{this.state.detection ? ('‾'):('+')}</span></td></tr>
                        {this.state.detection && <> <tr>
                         <td  className="components">Система обнаружения объектов в "слепых" зонах (BSD)</td>
                         <td> </td>
@@ -394,7 +394,7 @@ export class TablePrice extends Component {
 
                         <tr><td
                             onClick={()=>{this.setState(old=>{return{eyesight:!old.eyesight}})}}
-                         colSpan="3" style={{cursor:"pointer", backgroundColor:"#d8d8d8",fontSize:"1.4rem"}}><span style={{float:"left"}}>Система EyeSight-система помощи водителю</span>  <span style={{float:"right"}} >{this.state.eyesight ? ('‾'):('+')}</span></td></tr>
+                         colSpan="3" style={{cursor:"pointer",fontSize:"1.4rem"}}><span style={{float:"left"}}>Система EyeSight-система помощи водителю</span>  <span style={{float:"right"}} >{this.state.eyesight ? ('‾'):('+')}</span></td></tr>
                         
                         {this.state.eyesight && <><tr>
                         <td  className="components">Адаптивный круиз-контроль с управлением на рулевом колесе</td>

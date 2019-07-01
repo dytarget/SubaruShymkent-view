@@ -1,0 +1,34 @@
+.tools-container{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(230px,2fr));
+    margin: 0 auto;
+    grid-gap: 20px;
+}
+.tools-container h5{
+    margin-top: 30px;
+    font-size: 1.1rem;  
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+.tools-container a{
+    outline: none;
+    color: #333333;
+}
+.tools-container div:hover{
+    transition: all 0.3s ease-in-out;
+    color: #0099ff;
+}
+.container-big-tools{
+    text-align: center;
+    margin-left: 5%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.container-big-tools h3{
+    font-size: 2.2rem;
+    color: grey;
+    opacity: 0.8;
+    margin-bottom: 70px;
+}

@@ -11,10 +11,13 @@ import Gallery from './Gallery';
 export class Forester extends Component {
     state={
         color:"Jasper Green Metalic",
-        value:"33",
+        value:"01",
         path:'green',
         activeItemJustified: "1",
     }
+    componentDidMount(){
+        window.scrollTo(0,0)
+      }
    
     render() {
         return (
@@ -32,12 +35,12 @@ export class Forester extends Component {
                     <p>Представляем абсолютно новый Forester. Полностью переработанный внутри и снаружи, Forester достиг нового уровня комфорта, безопасности и универсальности, чтобы поддержать вас во всех ваших ежедневных приключениях, одновременно поощряя вас к новым. С прочным, компактным корпусом, который легко маневрировать, но при этом просторный и удобный внутри - Forester дает вам душевное спокойствие, зная, что все в полной мере наслаждаются своим временем.</p>
                     <hr />
                 </div>
-                <h1>от 11 890 000 тг</h1>
-                <h1 className="colorName">{this.state.color}</h1>
-                <div style={{height:"630px"}}><img style={{}} className="images" src={require('./images/forester/'+this.state.path+'/'+this.state.value+'.jpg')} alt="Forester"/></div>
+                <h1 style={{fontWeight:600}}>от 11 890 000 тг</h1>
+                <div style={{height:"430px"}}><img style={{}} className="images" src={require('./images/forester/'+this.state.path+'/'+this.state.value+'.jpg')} alt="Forester"/></div>
                 <Slider className="slid" value={this.state.value} onChange={(e)=>{if (e<10) {
                     this.setState({value:"0"+e})
                 }else{this.setState({value:e})}}} style={{width:"70%"}}  min={1} max={36} />
+                <h1 className="colorName fonts">{this.state.color}</h1>
                  <MDBBtnGroup className="mr-2 pickers">
                     <MDBBtn style={{backgroundColor:"black"}} onClick={()=>{this.setState({color:"Jasper Green Metallic",path:"green"})}} >1</MDBBtn>
                     <MDBBtn onClick={()=>{this.setState({color:"Crystal White Pearl",path:"white"})}} color="white">2</MDBBtn>
@@ -49,7 +52,10 @@ export class Forester extends Component {
                     <MDBBtn  onClick={()=>{this.setState({color:"Crystal Black Silica",path:"black"})}} color="black">8</MDBBtn>
 
                 </MDBBtnGroup>
-                <h2 className="gradus">360C°</h2>
+                
+                <h2 className="gradus">Вид на 360C°</h2>
+                <MDBBtn onClick={()=>{window.open('https://subarufinance.kz/')}} style={{marginLeft:"70%",marginTop:"50px"}} color="elegant">Выгодное кредитование с Subaru</MDBBtn>
+
                 <div><Gallery /></div>
             </div>
         )

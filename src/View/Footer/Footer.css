@@ -1,5 +1,5 @@
 footer{
-    background-color: #232323;
+    background-color: #333333;
     padding-left: 90px;
 }
 footer ul{
@@ -11,7 +11,6 @@ footer a{
 }
 
 footer li:hover{
- 
     color: #00a0dc;
 }
 
@@ -26,4 +25,8 @@ footer a:focus{
 }
 .bottom{
     margin-left: -90px;
+}
+
+.list-unstyled a:hover{
+    color: #00a0dc;
 }

@@ -1,9 +1,10 @@
 .model-list{
     margin: 0;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     text-align: center;
     justify-content: center;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.67);
 }
 .model{
     margin-left: 30px;

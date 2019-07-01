@@ -11,7 +11,7 @@ export class Gallery extends Component {
     state = {
         photoIndex: 0,
         isOpen: false,
-        active:"exterior"
+        active:"interior"
     };
     
     
