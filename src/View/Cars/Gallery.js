@@ -7,39 +7,105 @@ import TablePrice from './TablePrice';
 import TablePersonality from './TablePersonality';
 
 export class Gallery extends Component {
+    constructor(props){
+        super(props);
+        console.log(props);
+        
+        this.state = {
+            photoIndex: 0,
+            isOpen: false,
+            active:"interior"
+        };
+    }
     
-    state = {
-        photoIndex: 0,
-        isOpen: false,
-        active:"interior"
-    };
     
     
     render() {
+        console.log(this.props);
+        
         const { photoIndex, isOpen } = this.state;
 
         if (this.state.active==="exterior" || this.state.active==="interior") {
-            var images = [
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (1).jpg'),
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (2).jpg'),   
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (3).jpg'), 
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (4).jpg'), 
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (5).jpg'), 
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (6).jpg'), 
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (7).jpg'), 
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (8).jpg'), 
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (9).jpg'), 
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (10).jpg'),
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (11).jpg'),
-                require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (12).jpg'),  
-              ];
+            console.log();
+            var images=[];
+            var smallImages=[];
+            if (this.props.match.path==="/models/subaruxv") {
+                images = [
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (1).jpg'),
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (2).jpg'),   
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (3).jpg'), 
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (4).jpg'), 
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (5).jpg'), 
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (6).jpg'), 
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (7).jpg'), 
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (8).jpg'), 
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (9).jpg'), 
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (10).jpg'),
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (11).jpg'),
+                    require('./images/subaruxv/photos/'+this.state.active+'/xv18'+this.state.active+' (12).jpg'),  
+                ];
+                smallImages = images;
+            }
+            else   if (this.props.match.path==="/models/legacy") {
+                images = [
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (1).jpg'),
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (2).jpg'),   
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (3).jpg'), 
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (4).jpg'), 
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (5).jpg'), 
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (6).jpg'), 
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (7).jpg'), 
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (8).jpg'), 
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (9).jpg'), 
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (10).jpg'),
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (11).jpg'),
+                    require('./images/legacy/photos/'+this.state.active+'/18'+this.state.active.substring(0,3)+'legacy (12).jpg'),  
+                ];
+              smallImages = images;
+            }
+            else   if (this.props.match.path==="/models/forester") {
+                images = [
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (1).jpg'),
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (2).jpg'),
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (3).jpg'),
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (4).jpg'),
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (5).jpg'),
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (6).jpg'),
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (7).jpg'),
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (8).jpg'),
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (9).jpg'),
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (10).jpg'),
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (11).jpg'),
+                    require('./images/forester/photos/'+this.state.active+'/forester18'+this.state.active+' (12).jpg'),
+
+                ];
+              smallImages = images;
+            }
               
-              var smallImages = images;
+            else   if (this.props.match.path==="/models/outback") {
+                images = [
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (1).jpg'),
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (2).jpg'),
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (3).jpg'),
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (4).jpg'),
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (5).jpg'),
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (6).jpg'),
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (7).jpg'),
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (9).jpg'),
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (10).jpg'),
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (11).jpg'),
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (12).jpg'),
+                    require('./images/outback/photos/'+this.state.active+'/18out'+this.state.active.substring(0,3)+' (2).jpg'),
+
+                ];
+              smallImages = images;
+            }
+
             
         }
        
         return (
-            <div>
+            <div style={{marginLeft:"2%"}}>
                 <div className="tab-container">
                     <div onClick={()=>{this.setState({active:"exterior"})}} className="tab-element">Экстерьер</div>
                     <div onClick={()=>{this.setState({active:"interior"})}} className="tab-element">Интерьер</div>
@@ -200,6 +266,7 @@ export class Gallery extends Component {
                     </div>
                     {isOpen && (
                     <Lightbox
+                        style={{width:"80%"}}
                         mainSrc={images[photoIndex]}
                         nextSrc={images[(photoIndex + 1) % images.length]}
                         prevSrc={images[(photoIndex + images.length - 1) % images.length]}
@@ -425,8 +492,8 @@ X-Mode включает в себя систему, помогающую авт�
                         </MDBContainer >
                 </div>
             }
-            {this.state.active==="Price" && <TablePrice/>}
-            {this.state.active==="Personality" && <TablePersonality/>}
+            {this.state.active==="Price" && <TablePrice {...this.props}/>}
+            {this.state.active==="Personality" && <TablePersonality {...this.props}/>}
             </div>
         )
     }

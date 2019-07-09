@@ -5,7 +5,7 @@ import {Fragment} from 'react';
 
 
 
-const url="http://localhost:5000/";
+const url="http://78.40.109.172:5000/";
 
 
 export class News extends Component {

@@ -30,3 +30,9 @@ footer a:focus{
 .list-unstyled a:hover{
     color: #00a0dc;
 }
+
+@media only screen and (max-width: 500px) {
+    .gf{
+        margin-left: -50px;
+    }
+}

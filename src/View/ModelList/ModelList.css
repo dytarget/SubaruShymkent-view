@@ -37,3 +37,9 @@
     color: black;
     font-size: 0.9em;
 }
+@media only screen and (max-width: 1000px) {
+    .model-list{
+        flex-direction: column;
+        align-items: center;
+    }
+}

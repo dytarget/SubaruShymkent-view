@@ -20,6 +20,9 @@ const contacts=[
 ]
 
 export class Dealer extends Component {
+    componentWillMount(){
+        window.scrollTo(0,0);
+    }
 
     render() {
         return (

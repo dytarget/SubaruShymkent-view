@@ -6,7 +6,7 @@ import {Form} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
-const url="http://localhost:5000/";
+const url="http://78.40.109.172:5000/";
 
 export class Shortnews extends Component {
     state={

@@ -3,9 +3,13 @@ import './Accessories.css';
 import {Table} from 'react-bootstrap';
 
 
-const url="http://localhost:5000/";
+const url="http://78.40.109.172:5000/";
 
 export class Accessories extends Component {
+    componentWillMount(){
+        window.scrollTo(0,0)
+
+    }
     render() {
         return (
             <div className="all">

@@ -28,3 +28,18 @@
 .tabl tbody tr td{
     font-size: 1rem;
 }
+
+
+@media only screen and (max-width: 1000px) {
+    .tabl thead tr th{
+        font-size: 0.85rem;
+    }
+    
+    .tabl tbody tr td{
+        font-size: 0.5rem;
+    }
+    .service_comp{
+        margin-left: 5%;
+        margin-top: 50px;
+    }
+  }

@@ -102,7 +102,6 @@
   opacity: 1 !important;
 }
 .menu{
-  margin-left: -200px;
   transition: 0.33s ease-in-out;
 }
 .subarubrand{
@@ -119,4 +118,17 @@
   position: absolute;
   top: 0;
   background-color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+  .nav-resp{
+    position: relative;
+    z-index: 1000;
+    background-color: white;
+  }
+  .nav-resp2{
+    position: relative;
+    z-index: 1000;
+    background-color: #232323;
+  }
 }

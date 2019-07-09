@@ -5,7 +5,7 @@ import {Modal,Button} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
 import axios from 'axios';
 
-const url="http://localhost:5000/";
+const url="http://78.40.109.172:5000/";
 
 export class Cards extends Component {
     state={

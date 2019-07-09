@@ -5,7 +5,7 @@ import {Modal,Form} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
-const url="http://localhost:5000/";
+const url="http://78.40.109.172:5000/";
 
 
 class index extends React.Component {
@@ -30,7 +30,7 @@ class index extends React.Component {
     <MDBFooter color="dark" className="page-footer font-small pt-4 mt-4">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
-          <MDBCol md="3 ">
+          <MDBCol className="gf" md="3 ">
             <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
               Контакты
             </h5>
@@ -41,22 +41,22 @@ class index extends React.Component {
             </p>
           </MDBCol>
           <hr className="clearfix w-100 d-md-none" />
-          <MDBCol md="2">
+          <MDBCol className="gf" md="2">
             <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
               Модели
             </h5>
             <ul className="list-unstyled">
               <li>
-                <Link> <i className="fas fa-car-side"></i> Subaru XV</Link>
+                <Link to="/models/subaruxv"> <i className="fas fa-car-side"></i> Subaru XV</Link>
               </li>
               <li>
-                <Link> <i className="fas fa-car-side"></i> Forester</Link>
+                <Link to="/models/forester"> <i className="fas fa-car-side"></i> Forester</Link>
               </li>
               <li>
-                <Link> <i className="fas fa-car-side"></i> Outback</Link>
+                <Link  to="/models/outback"> <i className="fas fa-car-side"></i> Outback</Link>
               </li>
               <li>
-                <Link> <i className="fas fa-car-side"></i> Legacy</Link>
+                <Link to="/models/legacy"> <i className="fas fa-car-side"></i> Legacy</Link>
               </li>
               <li>
                 <Link onClick={this.handleOpen}> <i className="fab fa-empire"></i> Тест-драйв</Link>
@@ -64,42 +64,39 @@ class index extends React.Component {
             </ul>
           </MDBCol>
           <hr className="clearfix w-100 d-md-none" />
-          <MDBCol md="4">
+          <MDBCol className="gf" md="4">
             <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
               Информация
             </h5>
             <ul className="list-unstyled">
               <li>
-                <Link> <i className="fab fa-bandcamp"></i> Почему Subaru?</Link>
+                <Link to="/whysubaru"> <i className="fab fa-bandcamp"></i> Почему Subaru?</Link>
               </li>
               <li>
-                <Link><i className="fas fa-user-tag"></i> Специальные предложения</Link>
+                <Link to="/offers_list"><i className="fas fa-user-tag"></i> Специальные предложения</Link>
               </li>
               <li>
-              <Link><i className="fas fa-car"></i> Как подобрать авто?</Link>
+              <Link to="/choose"><i className="fas fa-car"></i> Как подобрать авто?</Link>
               </li>
               <li>
-              <Link> <i className="fas fa-question-circle"></i> Как оформить кредит?</Link>
+              <Link to="/getcredit"> <i className="fas fa-question-circle"></i> Как оформить кредит?</Link>
               </li>
               <li>
-              <Link><i className="fas fa-wrench"></i> Сервис</Link>
-              </li>
-              <li>
-              <Link><i className="fas fa-book"></i> Кредитные программы</Link>
+              <Link to="/credit"><i className="fas fa-book"></i> Кредитные программы</Link>
               </li>
             </ul>
           </MDBCol>
           <hr className="clearfix w-100 d-md-none" />
-          <MDBCol md="2">
+          <MDBCol className="gf" md="2">
             <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
               Дилеры
             </h5>
             <ul className="list-unstyled">
             <li>
-              <Link> <i className="fas fa-atlas"></i> Дилеры</Link>
+              <Link to="/dealers"> <i className="fas fa-atlas"></i> Дилеры</Link>
               </li>
               <li>
-              <Link> <i className="fas fa-globe"></i> Subaru в мире</Link>
+              <Link onClick={()=>{window.open("https://www.subaru-global.com/")}}> <i className="fas fa-globe"></i> Subaru в мире</Link>
               </li>
             </ul>
           </MDBCol>

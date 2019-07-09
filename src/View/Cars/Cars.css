@@ -439,7 +439,6 @@
 }
 
 .comercial h1{
-    font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
     margin-bottom: 20px;
     font-size: 3rem;
@@ -458,8 +457,7 @@
     background-color:grey;
 }
 
-.pickers{
-}
+
 
 
 .colorName{
@@ -526,6 +524,10 @@
   height: 560px;
 }
 
+.car-image{
+  height:430px;
+}
+
 .techs-photo img{
   margin-right: 50px;
 }
@@ -542,4 +544,100 @@
   font-size: 1.2rem;
   opacity: 0.7;
   margin-top: 10px;
+}
+
+#k{
+  background: #e8c9a2;
+}
+
+#a{
+  background: #e8c9a2;
+}
+.credit-button{
+  margin-left: 70%;
+  margin-top: 50px;
+}
+.files{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 50px;
+}
+.files div{
+  text-align: center;
+  vertical-align: center;
+  border: 3px solid #232323;
+  width: 200px;
+  height: 100px;
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .pickers{
+    width:0px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .images{
+    width: 100%;
+  }
+  .comercial{
+    display: none;
+}
+
+.tab-container{
+  margin-top:40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tab-element{
+  border-top: 2px solid #eeeeee;
+  padding: 5px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.credit-button{
+  margin-left: 30%;
+  margin-top: 50px;
+}
+.text-car{
+  padding: 20px 30px 20px 30px;
+}
+.text-car p{
+  opacity: 0.6;
+  padding: 10px 30px 10px 30px;
+}
+
+.zb img{
+  height: 200px;
+  margin-left: 20px;
+}
+.zb{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.files{
+  flex-direction: column;
+  row-gap: 30px;
+}
+.tables{
+}
+.components{
+  font-size: 0.6rem;
+}
+.tables tr td{
+  font-size: 0.55rem;
+}
+.tables h2{
+  font-size: 1.4rem;
+}
+.techs{
+  flex-direction: column;
+}
 }

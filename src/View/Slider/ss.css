@@ -1,0 +1,9 @@
+@media only screen and (max-width: 800px) {
+    .button-view{
+       display: none;
+       visibility: hidden;
+    }
+    .item{
+        height: 300px !important;
+    }
+}

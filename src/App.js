@@ -22,6 +22,16 @@ import {Route,Switch} from 'react-router-dom';
 import NewsList from './View/ShortNews/NewsList';
 import Outback from './View/Cars/Outback';
 import Legacy from './View/Cars/Legacy';
+import Tech from './View/Tech/Tech';
+import Help from './View/Help/Help';
+import Rules from './View/Rules/Rules';
+import HowBecome from './View/HowBecome/HowBecome';
+import Credit from './View/Credit/Credit';
+import Leasing from './View/Leasing/Leasing';
+import Insurence from './View/Insurence/Insurence';
+import Choose from './View/Other/Choose';
+import GetCredit from './View/Other/GetCredit';
+import { WhySubaru } from './View/Other/WhySubaru';
 
 
 const MainPage=()=>{
@@ -59,6 +69,17 @@ class App extends React.Component{
             <Route path='/models/forester' exact  component={Forester}/>
             <Route path='/models/outback' exact  component={Outback}/>
             <Route path='/models/legacy' exact  component={Legacy}/>
+            <Route path='/techservice' exact component={Tech}/>
+            <Route path='/helpful_info' exact component={Help}/>
+            <Route path='/info_salon' exact component={Rules}/>
+            <Route path='/how_become' exact component={HowBecome}/>
+            <Route path='/credit' exact component={Credit}/>
+            <Route path='/leasing' exact component={Leasing}/>
+            <Route path='/insurence' exact component={Insurence}/>
+            <Route path='/choose' exact component={Choose}/>
+            <Route path='/getcredit' exact component={GetCredit}/>
+            <Route path='/whysubaru' exact component={WhySubaru}/>
+
           </Switch>
         </div>
         <hr style={{marginTop:"70px"}}/>

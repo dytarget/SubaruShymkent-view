@@ -8,7 +8,7 @@ import { MDBContainer,MDBAlert, MDBRow, MDBCol, MDBModal,MDBModalHeader,MDBModal
 import ModelList from '../ModelList/ModelList';
 import axios from 'axios';
 
-const url="http://localhost:5000/";
+const url="http://78.40.109.172:5000/";
 export class NavbarContainer extends Component {
     state={
         showNapisat:false,
@@ -41,68 +41,69 @@ export class NavbarContainer extends Component {
     render() {
         return (
             <div>
-                 <Navbar className="justify-content-end navb">
-                    
-                    <Navbar.Collapse className="justify-content-end">
-                        <Nav>
+                 <Navbar  collapseOnSelect expand="lg" className="justify-content-end navb">
+                 <Navbar.Toggle aria-controls="responsive-navbar-nav2" />
+                    <Navbar.Collapse  id="responsive-navbar-nav2" className="justify-content-end">
+                        <Nav className="nav-resp2">
                         <Link onClick={this.handleOpen} className="link ">Написать нам</Link>
                         <Link to="/offers_list" className="link ">Специальные предложения </Link>
                         <Link className="link " to="/service_company" style={{marginRight:"20px"}}>Сервисные кампании </Link>
                         </Nav>
-                        <Navbar.Brand>
+                       
+                    </Navbar.Collapse>
+                    <Navbar.Brand>
                         <img style={{cursor:"pointer"}} onClick={()=>{window.open("http://www.astana-motors.kz/")}}  src={require('../../img/amlogo.png')} alt="Astana Motors"/>
                         </Navbar.Brand>
                         
-                    </Navbar.Collapse>
                     </Navbar>
-                    <Navbar className="nav2">
+                    <Navbar collapseOnSelect expand="lg" className="nav2">
                     <Navbar.Brand className="subarubrand" style={{marginLeft:"18px"}}>
                         <Link exact to="/">
                         <img src={require('../../img/subaru-logo.png')}  alt="Subaru"/>
                         </Link>
                     </Navbar.Brand>
-                    <Navbar.Collapse className="justify-content-end">
-                        <Nav className="justify-content-end">
-                        <MDBDropdown color="info-color">
-                            <MDBDropdownToggle className="navlinks" nav caret>
-                                <div className="d-none d-md-inline"><strong color="black">Модельный ряд</strong></div>
-                            </MDBDropdownToggle>
-                            <MDBDropdownMenu className="menu" center>
-                                <ModelList/>
-                            </MDBDropdownMenu>
-                            </MDBDropdown>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+                        <Nav className="nav-resp justify-content-end">
                             <MDBDropdown color="info-color">
-                            <MDBDropdownToggle className="navlinks" nav caret>
-                                <div className="d-none d-md-inline">Владельцам</div>
-                            </MDBDropdownToggle>
-                            <MDBDropdownMenu className="menu" center>
+                                <MDBDropdownToggle className="navlinks" nav caret>
+                                    <div className="d-none d-md-inline"><strong color="black">Модельный ряд</strong></div>
+                                </MDBDropdownToggle>
+                                <MDBDropdownMenu className="menu" right>
+                                    <ModelList/>
+                                </MDBDropdownMenu>
+                                </MDBDropdown>
+                                <MDBDropdown color="info-color">
+                                <MDBDropdownToggle className="navlinks" nav caret>
+                                    <div className="d-none d-md-inline">Владельцам</div>
+                                </MDBDropdownToggle>
+                                <MDBDropdownMenu className="menu" right>
+                                    <div className="dr-men">
+                                    <div className="dr-item"><Link to="/parts" className="link-dp">Запчасти</Link></div>
+                                    <div className="dr-item"><Link to="/guarantee" className="link-dp">Гарантийное обслуживание</Link></div> 
+                                    <div className="dr-item"><Link  to="/techservice" className="link-dp">Техническое обслуживание</Link></div>
+                                    <div className="dr-item"><Link to="/helpful_info" className="link-dp">Полезная информация</Link></div>
+                                    <div className="dr-item"><Link to="/manual" className="link-dp">Руководства</Link></div>
+                                    <div className="dr-item"><Link to="/info_salon" className="link-dp">Информация для посетителей салонов</Link></div>
+                                </div>
+                                </MDBDropdownMenu>
+                                </MDBDropdown>
+                                <MDBDropdown color="info-color">
+                                <MDBDropdownToggle className="navlinks" nav caret>
+                                    <div className="d-none d-md-inline">О нашей компании</div>
+                                </MDBDropdownToggle>
+                                <MDBDropdownMenu className="menu" right>
                                 <div className="dr-men">
-                                <div className="dr-item"><Link to="/parts" className="link-dp">Запчасти</Link></div>
-                                <div className="dr-item"><Link to="/guarantee" className="link-dp">Гарантийное обслуживание</Link></div> 
-                                <div className="dr-item"><Link className="link-dp">Техническое обслуживание</Link></div>
-                                <div className="dr-item"><Link className="link-dp">Полезная информация</Link></div>
-                                <div className="dr-item"><Link to="/manual" className="link-dp">Руководства</Link></div>
-                                <div className="dr-item"><Link className="link-dp">Информация для посетителей салонов</Link></div>
-                            </div>
-                            </MDBDropdownMenu>
-                            </MDBDropdown>
-                            <MDBDropdown color="info-color">
-                            <MDBDropdownToggle className="navlinks" nav caret>
-                                <div className="d-none d-md-inline">О нашей компании</div>
-                            </MDBDropdownToggle>
-                            <MDBDropdownMenu className="menu" center>
-                            <div className="dr-men">
-                            <div className="dr-item"><Link className="link-dp">Почему Subaru?</Link></div>
-                            <div className="dr-item"><Link className="link-dp">Новости</Link></div>
-                            <div className="dr-item"><Link className="link-dp">История</Link></div> 
-                            <div className="dr-item"><Link className="link-dp">Дилеры</Link></div>
-                            <div className="dr-item"><Link className="link-dp">Как стать дилером Subaru</Link></div>
-                            </div>
-                            </MDBDropdownMenu>
-                            </MDBDropdown>
-                        <Nav.Link onClick={()=>{window.open("http://subarutrade-in.kz/")}} className="navlinks">Автомобили с пробегом</Nav.Link>
-                            <Nav.Link className="navlinks" onClick={()=>{this.setState({show:true})}} >Тест-Драйв</Nav.Link>
-                            <Nav.Link  className="navlinks mr-sm-4"><Link to="/dealers" style={{color:"inherit"}}>Дилеры</Link></Nav.Link>
+                                <div className="dr-item"><Link to="/whysubaru" className="link-dp">Почему Subaru?</Link></div>
+                                <div className="dr-item"><Link to="/offers_list" className="link-dp">Новости</Link></div>
+                                <div className="dr-item"><Link to="/dealers" className="link-dp">Дилеры</Link></div>
+                                <div className="dr-item"><Link to="/how_become" className="link-dp">Как стать дилером Subaru</Link></div>
+                                </div>
+                                </MDBDropdownMenu>
+                                </MDBDropdown>
+                            <Nav.Link onClick={()=>{window.open("http://subarutrade-in.kz/")}} className="navlinks">Автомобили с пробегом</Nav.Link>
+                                <Nav.Link className="navlinks" onClick={()=>{this.setState({show:true})}} >Тест-Драйв</Nav.Link>
+                                <Nav.Link  className="navlinks mr-sm-4"><Link to="/dealers" style={{color:"inherit"}}>Дилеры</Link></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>  
                 </Navbar>

@@ -5,7 +5,7 @@ import {Table,Button,Modal,Form} from 'react-bootstrap';
 import axios from 'axios';
 
 
-const url="http://localhost:5000/";
+const url="http://78.40.109.172:5000/";
 export class ServiceCompany extends Component {
     state={
         showNapisat:false,
@@ -47,7 +47,7 @@ export class ServiceCompany extends Component {
                 <p>Сервисные кампании</p>
                 </div>
 
-                <Table className="tabl" hover size="lg" style={{width:"90%"}} bordered>
+                <Table className="tabl" hover size="sm" style={{width:"85%"}} bordered>
                     <thead>
                         <tr>
                             <th>Сервисная кампания</th>

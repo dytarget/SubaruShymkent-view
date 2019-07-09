@@ -6,17 +6,21 @@ import {MDBBtn,MDBBtnGroup} from 'mdbreact';
 import { MDBContainer, MDBRow, MDBCol, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink, MDBIcon } from
 "mdbreact";
 import Gallery from './Gallery';
+import axios from 'axios';
 
 
 export class Legacy extends Component {
     state={
+        file_list:[],
         color:"Ice Silver Metalic",
         value:"01",
         path:'icesilver',
         activeItemJustified: "1",
     }
     componentDidMount(){
-        window.scrollTo(0,0)
+        window.scrollTo(0,0);
+        axios.get('http://78.40.109.172:5000/files/legacy').then(res=>{this.setState({file_list:res.data});});
+
       }
    
     render() {
@@ -42,22 +46,38 @@ export class Legacy extends Component {
                 }else{this.setState({value:e})}}} style={{width:"70%"}}  min={1} max={36} />
                 <h1 className="colorName fonts">{this.state.color}</h1>
                  <MDBBtnGroup className="mr-2 pickers">
+                 <MDBBtnGroup className="mr-2">
+
                     <MDBBtn  onClick={()=>{this.setState({color:"Ice Silver Metallic",path:"icesilver"})}}  color="blue-grey">1</MDBBtn>
                     <MDBBtn onClick={()=>{this.setState({color:"Crystal White Pearl",path:"white"})}} color="white">2</MDBBtn>
                     <MDBBtn onClick={()=>{this.setState({color:"Storm Grey Metallic",path:"stormgrey"})}} color="light-blue">3</MDBBtn>
-                    <MDBBtn onClick={()=>{this.setState({color:"Tungsten Metallic",path:"tungsten"})}} color="cream" >4</MDBBtn>
+                    </MDBBtnGroup>
+                    <MDBBtnGroup className="mr-2">
+                    <MDBBtn id="k" onClick={()=>{this.setState({color:"Tungsten Metallic",path:"tungsten"})}} color="cream" >4</MDBBtn>
                     <MDBBtn  onClick={()=>{this.setState({color:"Oak Brown Pearl",path:"oakbrown"})}} color="brown">5</MDBBtn>
                     <MDBBtn  onClick={()=>{this.setState({color:"Dark Blue Pearl",path:"darkblue"})}} color="blue">6</MDBBtn>
-                    <MDBBtn onClick={()=>{this.setState({color:"Crimson Red Pearl",path:"red"})}}  color="red">6</MDBBtn>
-                    <MDBBtn onClick={()=>{this.setState({color:"Dark Grey Metallic",path:"grey"})}}  color="grey">7</MDBBtn>
-                    <MDBBtn  onClick={()=>{this.setState({color:"Crystal Black Silica",path:"black"})}} color="black">8</MDBBtn>
+                    </MDBBtnGroup>
+                    <MDBBtnGroup className="mr-2">
+                    <MDBBtn onClick={()=>{this.setState({color:"Crimson Red Pearl",path:"red"})}}  color="red">7</MDBBtn>
+                    <MDBBtn onClick={()=>{this.setState({color:"Dark Grey Metallic",path:"grey"})}}  color="grey">8</MDBBtn>
+                    <MDBBtn  onClick={()=>{this.setState({color:"Crystal Black Silica",path:"black"})}} color="black">9</MDBBtn>
+                    </MDBBtnGroup>
 
                 </MDBBtnGroup>
                 
                 <h2 className="gradus">Вид на 360C°</h2>
-                <MDBBtn onClick={()=>{window.open('https://subarufinance.kz/')}} style={{marginLeft:"70%",marginTop:"50px"}} color="elegant">Выгодное кредитование с Subaru</MDBBtn>
+                <MDBBtn className="credit-button" onClick={()=>{window.open('https://subarufinance.kz/')}} color="elegant">Выгодное кредитование с Subaru</MDBBtn>
 
-                <div><Gallery /></div>
+                <div><Gallery  {...this.props}/></div>
+                <div className="files">
+                    {this.state.file_list.map(file=>{
+                        return(
+                            <div>
+                                <a onClick={()=>{window.open("http://78.40.109.172:5000/"+file.filename)}}>{file.title_of_file}</a>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         )
     }
