@@ -1,1 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+
+.s-widget{
+    margin-left: 20%;
+    margin-top: 12%;
+}
+@media only screen and (max-width: 600px) {
+    .s-widget{
+        margin-left: 13%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .s-widget{
+        margin-top: 12%;
+    }
+}

@@ -1,9 +1,9 @@
 .tools-container{
     text-align: center;
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(230px,2fr));
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     margin: 0 auto;
-    grid-gap: 20px;
 }
 .tools-container h5{
     margin-top: 30px;
@@ -15,6 +15,10 @@
 .tools-container a{
     outline: none;
     color: #333333;
+}
+.tools-container div{
+    min-width: 250px;
+    width: 25%;
 }
 .tools-container div:hover{
     transition: all 0.3s ease-in-out;
@@ -31,4 +35,11 @@
     color: grey;
     opacity: 0.8;
     margin-bottom: 70px;
+}
+
+@media only screen and (max-width:950){
+   
+}
+@media only screen and (max-width:600){
+  
 }
